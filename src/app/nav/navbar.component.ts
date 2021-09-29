@@ -6,6 +6,7 @@ import { Component } from "@angular/core";
     templateUrl: "./navbar.component.html",
     styles: [`
         .navbar {border-radius: 5px}
+        li>a.active {color: #f97924; background-color: #494949}
         .nav.navbar-nav {font-size: 15px}
         .navbar-form .btn {font-weight: 700}
         .navbar-form .btn:hover {color: #bbb}
