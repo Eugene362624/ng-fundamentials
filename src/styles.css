@@ -32,3 +32,6 @@
   .toast-warning {
     background-color: #f89406;
   }
+  input, button, textarea, select {
+    border-radius: 5px !important;
+  }
