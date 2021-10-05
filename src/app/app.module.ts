@@ -1,11 +1,11 @@
 import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { ToastrService, CollapsibleWellComponent } from './common/index';
+import { TOASTR_TOKEN, Toastr, CollapsibleWellComponent } from './common/index';
 import { Error404Component } from './errors/404.component';
 
 import {
-  CreateEventComponent, EventDetailsComponent, EventRouteActivator, EventsListComponent, EventThumbnailComponent, EventService, EventListResolver, CreateSessionComponent, SessionListComponent
+  CreateEventComponent, EventDetailsComponent, EventRouteActivator, EventsListComponent, EventThumbnailComponent, EventService, EventListResolver, CreateSessionComponent, SessionListComponent, DurationPipe
 } from './events/index'
 
 import { AppComponent } from './events-app.component';
@@ -14,6 +14,8 @@ import { appRoutes } from './routes'
 import { LoginComponent } from './user/login.component';
 import { AuthService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+declare let toastr:Toastr
 
 @NgModule({
   declarations: [
@@ -26,11 +28,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     Error404Component,
     CreateSessionComponent,
     SessionListComponent,
-    CollapsibleWellComponent
+    CollapsibleWellComponent,
+    DurationPipe
   ],
   providers: [
     EventService,
-    ToastrService,
+    {provide: TOASTR_TOKEN, useValue: toastr},
     EventRouteActivator,
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
     EventListResolver,

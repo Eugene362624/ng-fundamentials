@@ -15,7 +15,9 @@ import { ISession } from "../shared";
 
 export class EventDetailsComponent {
     event: IEvent | undefined | number[] | any
-    
+    filterBy: "beginner" | "intermediate" | "advanced" | "all" = 'all'
+    sortBy: 'votes' | 'name' = 'name'
+
     constructor (private eventService: EventService, private route: ActivatedRoute) {
 
     }
@@ -36,6 +38,8 @@ export class EventDetailsComponent {
         this.eventService.updateEvent(this.event)
         this.addMode = false
     }
+
+
 
     cancelAddSession() {
         this.addMode = false

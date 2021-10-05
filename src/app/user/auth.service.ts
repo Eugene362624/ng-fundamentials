@@ -15,7 +15,6 @@ export class AuthService {
     }
 
     isAuthenticated() {
-        console.log(this.currentUser)
         return !!this.currentUser
     }
 
