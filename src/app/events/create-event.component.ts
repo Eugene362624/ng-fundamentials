@@ -17,8 +17,9 @@ import { EventService, IEvent } from ".";
 export class CreateEventComponent {
     isDirty: boolean = true
     newEvent: IEvent
-    event: any
-    // newEvent: {name: string, imageUrl: string, onlineUrl: string, country: string, city: string, address: string, price: number, time: string, date: Date}
+    // event: any
+    event: IEvent 
+    // event: {name: string, imageUrl: string, onlineUrl: string, country: string, city: string, address: string, price: number, time: string, date: Date}
     constructor(private router: Router, private eventService: EventService) {
 
     }
@@ -32,7 +33,7 @@ export class CreateEventComponent {
     ngOnInit() {
         this.event = {
             name: 'dsadas',
-            date: '8/8/2028',
+            date: new Date('02/01/2002'),
             time: '10:00 am',
             price: 788.88,
             location: {
@@ -41,7 +42,9 @@ export class CreateEventComponent {
                 country: 'belarus'
             },
             onlineUrl: 'http://google.com',
-            imageUrl: 'http://google.com'
+            imageUrl: 'http://i.mgflip.com/yhzjy.jpg',
+            id: 99,
+            sessions:[]
         }
     }
 

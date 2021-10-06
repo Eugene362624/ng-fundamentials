@@ -5,8 +5,10 @@ import { TOASTR_TOKEN, Toastr, CollapsibleWellComponent, JQ_TOKEN, SimpleModalCo
 import { Error404Component } from './errors/404.component';
 
 import {
-  CreateEventComponent, EventDetailsComponent, EventRouteActivator, EventsListComponent, EventThumbnailComponent, EventService, EventListResolver, CreateSessionComponent, SessionListComponent, DurationPipe
+  CreateEventComponent, LocationValidator, EventDetailsComponent, EventRouteActivator, EventsListComponent, EventThumbnailComponent, EventService, EventListResolver, CreateSessionComponent, SessionListComponent, DurationPipe
 } from './events/index'
+
+import { UpvoteComponent, VoterService } from './events/event-details';
 
 import { AppComponent } from './events-app.component';
 import { NavBarComponent } from './nav/navbar.component';
@@ -30,10 +32,13 @@ let jQuery = window['$']
     CollapsibleWellComponent,
     DurationPipe,
     SimpleModalComponent,
-    ModalTriggerDirective
+    ModalTriggerDirective,
+    UpvoteComponent,
+    LocationValidator
   ],
   providers: [
     EventService,
+    VoterService,
     {provide: TOASTR_TOKEN, useValue: toastr},
     {provide: JQ_TOKEN, useValue: jQuery},
     EventRouteActivator,
